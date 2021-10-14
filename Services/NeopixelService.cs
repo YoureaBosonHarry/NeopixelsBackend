@@ -15,7 +15,7 @@ namespace NeopixelsBackend.Services
         private readonly Controller controller;
         public NeopixelService()
         {
-            this.controller = settings.AddController(256, Pin.Gpio18, StripType.Unknown);
+            this.controller = settings.AddController(256, Pin.Gpio18, StripType.WS2811_STRIP_GRB);
         }
 
         public void SetPattern(Dictionary<int, string> colorDict)
