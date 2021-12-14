@@ -20,7 +20,6 @@ C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\S
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.csprojAssemblyReference.cache
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.AssemblyInfoInputs.cache
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.AssemblyInfo.cs
@@ -28,7 +27,6 @@ C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\N
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\staticwebassets\NeopixelsBackend.StaticWebAssets.Manifest.cache
-C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\staticwebassets\NeopixelsBackend.StaticWebAssets.xml
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\scopedcss\bundle\NeopixelsBackend.styles.css
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.RazorTargetAssemblyInfo.cache
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.csproj.CopyComplete
@@ -36,3 +34,8 @@ C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\N
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\ref\NeopixelsBackend.dll
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.pdb
 C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.genruntimeconfig.cache
+C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\NeopixelsBackend.StaticWebAssets.xml
+C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\Dapper.dll
+C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\Npgsql.dll
+C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rath3\source\repos\NeopixelsBackend\NeopixelsBackend\obj\Debug\net5.0\NeopixelsBackend.csproj.AssemblyReference.cache

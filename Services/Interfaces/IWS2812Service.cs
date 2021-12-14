@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace NeopixelsBackend.Services.Interfaces
 {
-    public interface INeopixelService
+    public interface IWS2812Service
     {
         void SetPattern(Dictionary<int, string> colorDict);
+        void ClearPixels();
     }
 }

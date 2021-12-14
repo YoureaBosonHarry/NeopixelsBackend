@@ -9,13 +9,22 @@ using System.Threading.Tasks;
 
 namespace NeopixelsBackend.Services
 {
-    public class NeopixelService: INeopixelService
+    public class WS2812Service: IWS2812Service
     {
         private readonly Settings settings = Settings.CreateDefaultSettings(false);
         private readonly Controller controller;
-        public NeopixelService()
+        public WS2812Service()
         {
             this.controller = settings.AddController(256, Pin.Gpio18, StripType.WS2811_STRIP_GRB);
+        }
+
+        public void ClearPixels()
+        {
+            using (var rpi = new WS281x(settings))
+            {
+                rpi.Reset();
+                rpi.Dispose();
+            };
         }
 
         public void SetPattern(Dictionary<int, string> colorDict)

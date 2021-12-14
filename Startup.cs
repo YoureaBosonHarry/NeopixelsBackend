@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NeopixelsBackend.Repositories;
+using NeopixelsBackend.Repositories.Interfaces;
 using NeopixelsBackend.Services;
 using NeopixelsBackend.Services.Interfaces;
 using System;
@@ -28,7 +30,12 @@ namespace NeopixelsBackend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<INeopixelService, NeopixelService>();
+            var connectionString = Configuration.GetValue<string>("CONNECTIONSTRING");
+            var patternRepo = new PatternRepository(connectionString);
+            var ws2812Service = new WS2812Service();
+            services.AddSingleton<IPatternRepository>(_ => patternRepo);
+            services.AddSingleton<IPatternService>(i => new PatternService(patternRepo, ws2812Service));
+            services.AddSingleton<IWS2812Service>(_ => ws2812Service);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

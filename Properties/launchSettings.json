@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONNECTIONSTRING": "Host=192.168.50.93;Username=ben;Password=L1FuDA0rCG03SpyZtUxP;Database=patternsdb"
       }
     },
     "NeopixelsBackend": {
