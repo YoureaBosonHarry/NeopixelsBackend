@@ -24,12 +24,20 @@ namespace NeopixelsBackend.Controllers
             this.patternService = patternService;
         }
 
-        [HttpGet("GetAvailablePatterns")]
+        [HttpGet("GetPatternList")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<PatternList>))]
         public async Task<IActionResult> GetAvailablePatternsAsync()
         {
             var availablePatterns = await this.patternService.GetPatternListAsync();
             return Ok(availablePatterns);
+        }
+
+        [HttpGet("GetPatternDetails")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<PatternDetails>))]
+        public async Task<IActionResult> GetPatternDetailsAsync([FromQuery]Guid patternUUID)
+        {
+            var patternDetails = await this.patternService.GetPatternDetailsAsync(patternUUID);
+            return Ok(patternDetails);
         }
 
         [HttpPost("ChangePattern")]
