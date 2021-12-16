@@ -3,6 +3,7 @@ using NeopixelsBackend.Repositories.Interfaces;
 using NeopixelsBackend.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -50,10 +51,13 @@ namespace NeopixelsBackend.Services
         {
             while (isSending)
             {
+                patternDetails = patternDetails.DistinctBy(i => i.SequenceNumber);
+                patternDetails = patternDetails.OrderBy(i => i.SequenceNumber);
                 foreach (var pattern in patternDetails)
                 {
                     this.wS2812Service.SetPattern(pattern.SequenceDictionary);
                     Thread.Sleep(700);
+                    Console.WriteLine(pattern.SequenceNumber.ToString());
                 }
             }
         }

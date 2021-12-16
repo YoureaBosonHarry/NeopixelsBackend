@@ -22,7 +22,6 @@ namespace NeopixelsBackend.Repositories
             using (var sql = new NpgsqlConnection(this.connectionString))
             {
                 var patterns = await sql.QueryAsync<PatternList>("patterns_schema.get_pattern_list", commandType: System.Data.CommandType.StoredProcedure);
-                await InsertChristmasTree();
                 return patterns;
             }
         } 
