@@ -51,8 +51,6 @@ namespace NeopixelsBackend.Services
         {
             while (isSending)
             {
-                patternDetails = patternDetails.DistinctBy(i => i.SequenceNumber);
-                patternDetails = patternDetails.OrderBy(i => i.SequenceNumber);
                 foreach (var pattern in patternDetails)
                 {
                     this.wS2812Service.SetPattern(pattern.SequenceDictionary);

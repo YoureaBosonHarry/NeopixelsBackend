@@ -1,0 +1,22 @@
+﻿services:
+  neopixelbackend:
+    image: youreabosonharry/neopixelbackend:1.2.0
+    privileged: true
+    environment:
+      - CONNECTIONSTRING=${CONNECTIONSTRING}
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - frontendnetwork
+      - backendnetwork
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"
+networks:
+  frontendnetwork:
+    external: true
+  backendnetwork:
+    external: true

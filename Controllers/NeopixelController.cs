@@ -51,7 +51,7 @@ namespace NeopixelsBackend.Controllers
 
         [HttpPost("ClearPixels")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> ClearNeopixels()
+        public IActionResult ClearNeopixels()
         {
             this.patternService.StopSending();
             this.neopixelService.ClearPixels();
