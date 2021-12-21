@@ -42,9 +42,9 @@ namespace NeopixelsBackend.Controllers
 
         [HttpPost("ChangePattern")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> ChangeNeopixelPattern([FromBody]Guid patternUUID)
+        public async Task<IActionResult> ChangeNeopixelPattern([FromBody]PatternChangeRequest changeRequest)
         {
-            var patternDetails = await this.patternService.GetPatternDetailsAsync(patternUUID);
+            var patternDetails = await this.patternService.GetPatternDetailsAsync(changeRequest.PatternUUID);
             this.patternService.SendPatternToNeopixels(patternDetails);
             return Ok();
         }
