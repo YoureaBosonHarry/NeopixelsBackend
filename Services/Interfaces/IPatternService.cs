@@ -9,6 +9,8 @@ namespace NeopixelsBackend.Services.Interfaces
     {
         Task<IEnumerable<PatternList>> GetPatternListAsync();
         Task<IEnumerable<PatternDetails>> GetPatternDetailsAsync(Guid patternUUID);
+        Task<IEnumerable<PatternDetails>> UpdatePatternDetailsAsync(IEnumerable<PatternDetails> updatedPatternDetails);
+        Task<PatternDetails> AddPatternDetailsAsync(PatternDetails patternDetails);
         bool SendPatternToNeopixels(IEnumerable<PatternDetails> patternDetails);
         void StopSending();
     }

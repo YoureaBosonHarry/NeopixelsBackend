@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "NeopixelsBackend/1.2.0": {
+      "NeopixelsBackend/1.4.0": {
         "dependencies": {
           "Dapper": "2.0.123",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.1",
@@ -191,7 +191,7 @@
     }
   },
   "libraries": {
-    "NeopixelsBackend/1.2.0": {
+    "NeopixelsBackend/1.4.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

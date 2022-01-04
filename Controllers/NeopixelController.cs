@@ -40,6 +40,22 @@ namespace NeopixelsBackend.Controllers
             return Ok(patternDetails);
         }
 
+        [HttpPost("AddPatternDetails")]
+        [ProducesResponseType(200, Type = typeof(PatternDetails))]
+        public async Task<IActionResult> AddPatternDetailsAsync([FromBody] PatternDetails patternDetails)
+        {
+            var processedDetails = await this.patternService.AddPatternDetailsAsync(patternDetails);
+            return Ok(processedDetails);
+        }
+
+        [HttpPut("UpdatePatternDetails")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<PatternDetails>))]
+        public async Task<IActionResult> UpdatePatternDetailsAsync(IEnumerable<PatternDetails> updatedPatternDetails)
+        {
+            var verifiedPatternDetails = await this.patternService.UpdatePatternDetailsAsync(updatedPatternDetails);
+            return Ok(verifiedPatternDetails);
+        }
+
         [HttpPost("ChangePattern")]
         [ProducesResponseType(200)]
         public async Task<IActionResult> ChangeNeopixelPattern([FromBody]PatternChangeRequest changeRequest)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NeopixelsBackend.Services
 {
-    public class PatternService: IPatternService
+    public class PatternService : IPatternService
     {
         private readonly IPatternRepository patternRepository;
         private readonly IWS2812Service wS2812Service;
@@ -20,7 +20,7 @@ namespace NeopixelsBackend.Services
         {
             this.patternRepository = patternRepository;
             this.wS2812Service = wS2812Service;
-        }   
+        }
 
         public async Task<IEnumerable<PatternList>> GetPatternListAsync()
         {
@@ -32,6 +32,21 @@ namespace NeopixelsBackend.Services
         {
             var patternDetails = await this.patternRepository.GetPatternGenerationByGuidAsync(patternUUID);
             return patternDetails;
+        }
+
+        public async Task<IEnumerable<PatternDetails>> UpdatePatternDetailsAsync(IEnumerable<PatternDetails> updatedPatternDetails)
+        {
+            foreach (var patternDetails in updatedPatternDetails)
+            {
+                await this.patternRepository.UpdatePatternDetails(patternDetails);
+            }
+            return updatedPatternDetails;
+        }
+
+        public async Task<PatternDetails> AddPatternDetailsAsync(PatternDetails patternDetails)
+        {
+            var repoDetails = await this.patternRepository.AddPatternDetailsAsync(patternDetails);
+            return repoDetails;
         }
 
         public bool SendPatternToNeopixels(IEnumerable<PatternDetails> patternDetails)

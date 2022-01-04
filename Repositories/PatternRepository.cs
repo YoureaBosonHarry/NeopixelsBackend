@@ -24,16 +24,55 @@ namespace NeopixelsBackend.Repositories
                 var patterns = await sql.QueryAsync<PatternList>("patterns_schema.get_pattern_list", commandType: System.Data.CommandType.StoredProcedure);
                 return patterns;
             }
-        } 
+        }
+
+        public async Task AddPattern(PatternList pattern)
+        {
+            using (var sql = new NpgsqlConnection(this.connectionString))
+            {
+                var sqlParams = new DynamicParameters();
+                sqlParams.Add("_pattern_uuid", pattern.PatternUUID);
+                sqlParams.Add("_pattern_name", pattern.PatternName);
+                await sql.ExecuteAsync("patterns_schema.add_pattern", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
 
         public async Task<IEnumerable<PatternDetails>> GetPatternGenerationByGuidAsync(Guid patternUUID)
         {
-            using (var sql = new NpgsqlConnection(connectionString))
+            using (var sql = new NpgsqlConnection(this.connectionString))
             {
                 var sqlParams = new DynamicParameters();
                 sqlParams.Add("_pattern_uuid", patternUUID);
                 var patternGenerator = await sql.QueryAsync<PatternDetails>("patterns_schema.get_pattern_generation", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
                 return patternGenerator;
+            }
+        }
+
+        public async Task<PatternDetails> AddPatternDetailsAsync(PatternDetails patternDetails)
+        {
+            using (var sql = new NpgsqlConnection(this.connectionString))
+            {
+                var sqlParams = new DynamicParameters();
+                sqlParams.Add("_pattern_uuid", patternDetails.PatternUUID);
+                sqlParams.Add("_pattern_name", patternDetails.PatternName);
+                sqlParams.Add("_sequence_number", patternDetails.SequenceNumber);
+                sqlParams.Add("_sequence_description", patternDetails.SequenceDescription);
+                sqlParams.Add("_pattern_metadata", patternDetails.SequenceMetadata);
+                await sql.ExecuteAsync("patterns_schema.add_pattern_sequence", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
+                return patternDetails;
+            }
+        }
+
+        public async Task<PatternDetails> UpdatePatternDetails(PatternDetails patternDetails)
+        {
+            using (var sql = new NpgsqlConnection(this.connectionString))
+            {
+                var sqlParams = new DynamicParameters();
+                sqlParams.Add("_pattern_uuid", patternDetails.PatternUUID);
+                sqlParams.Add("_sequence_number", patternDetails.SequenceNumber);
+                sqlParams.Add("_sequence_description", patternDetails.SequenceDescription);
+                await sql.ExecuteAsync("patterns_schema.update_pattern_sequence", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
+                return patternDetails;
             }
         }
     }
