@@ -32,6 +32,14 @@ namespace NeopixelsBackend.Controllers
             return Ok(availablePatterns);
         }
 
+        [HttpPost("CreatePattern")]
+        [ProducesResponseType(200, Type = typeof(PatternList))]
+        public async Task<IActionResult> CreatePatternAsync([FromBody]PatternList patternList)
+        {
+            var createdPattern = await this.patternService.CreatePatternAsync(patternList);
+            return Ok(createdPattern);
+        }
+
         [HttpGet("GetPatternDetails")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<PatternDetails>))]
         public async Task<IActionResult> GetPatternDetailsAsync([FromQuery]Guid patternUUID)
@@ -61,6 +69,7 @@ namespace NeopixelsBackend.Controllers
         public async Task<IActionResult> ChangeNeopixelPattern([FromBody]PatternChangeRequest changeRequest)
         {
             var patternDetails = await this.patternService.GetPatternDetailsAsync(changeRequest.PatternUUID);
+            patternDetails = patternDetails.OrderBy(i => i.SequenceNumber);
             this.patternService.SendPatternToNeopixels(patternDetails);
             return Ok();
         }

@@ -26,7 +26,7 @@ namespace NeopixelsBackend.Repositories
             }
         }
 
-        public async Task AddPattern(PatternList pattern)
+        public async Task<PatternList> CreatePattern(PatternList pattern)
         {
             using (var sql = new NpgsqlConnection(this.connectionString))
             {
@@ -34,6 +34,7 @@ namespace NeopixelsBackend.Repositories
                 sqlParams.Add("_pattern_uuid", pattern.PatternUUID);
                 sqlParams.Add("_pattern_name", pattern.PatternName);
                 await sql.ExecuteAsync("patterns_schema.add_pattern", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
+                return pattern;
             }
         }
 

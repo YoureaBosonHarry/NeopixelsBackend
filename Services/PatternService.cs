@@ -28,6 +28,12 @@ namespace NeopixelsBackend.Services
             return availablePatterns;
         }
 
+        public async Task<PatternList> CreatePatternAsync(PatternList pattern)
+        {
+            var createdPattern = await this.patternRepository.CreatePattern(pattern);
+            return createdPattern;
+        }
+
         public async Task<IEnumerable<PatternDetails>> GetPatternDetailsAsync(Guid patternUUID)
         {
             var patternDetails = await this.patternRepository.GetPatternGenerationByGuidAsync(patternUUID);

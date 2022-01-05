@@ -8,6 +8,7 @@ namespace NeopixelsBackend.Services.Interfaces
     public interface IPatternService
     {
         Task<IEnumerable<PatternList>> GetPatternListAsync();
+        Task<PatternList> CreatePatternAsync(PatternList pattern);
         Task<IEnumerable<PatternDetails>> GetPatternDetailsAsync(Guid patternUUID);
         Task<IEnumerable<PatternDetails>> UpdatePatternDetailsAsync(IEnumerable<PatternDetails> updatedPatternDetails);
         Task<PatternDetails> AddPatternDetailsAsync(PatternDetails patternDetails);
