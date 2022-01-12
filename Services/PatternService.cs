@@ -30,8 +30,14 @@ namespace NeopixelsBackend.Services
 
         public async Task<PatternList> CreatePatternAsync(PatternList pattern)
         {
-            var createdPattern = await this.patternRepository.CreatePattern(pattern);
+            var createdPattern = await this.patternRepository.CreatePatternAsync(pattern);
             return createdPattern;
+        }
+
+        public async Task<PatternList> DeletePatternAsync(PatternList pattern)
+        {
+            var deletedPattern = await this.patternRepository.DeletePatternAsync(pattern);
+            return deletedPattern;
         }
 
         public async Task<IEnumerable<PatternDetails>> GetPatternDetailsAsync(Guid patternUUID)
@@ -54,6 +60,8 @@ namespace NeopixelsBackend.Services
             var repoDetails = await this.patternRepository.AddPatternDetailsAsync(patternDetails);
             return repoDetails;
         }
+
+        
 
         public bool SendPatternToNeopixels(IEnumerable<PatternDetails> patternDetails)
         {

@@ -40,6 +40,14 @@ namespace NeopixelsBackend.Controllers
             return Ok(createdPattern);
         }
 
+        [HttpDelete("DeletePattern")]
+        [ProducesResponseType(200, Type = typeof(PatternList))]
+        public async Task<IActionResult> DeletePatternAsync([FromBody] PatternList patternList)
+        {
+            var createdPattern = await this.patternService.DeletePatternAsync(patternList);
+            return Ok(createdPattern);
+        }
+
         [HttpGet("GetPatternDetails")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<PatternDetails>))]
         public async Task<IActionResult> GetPatternDetailsAsync([FromQuery]Guid patternUUID)
