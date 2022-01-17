@@ -38,14 +38,14 @@ namespace NeopixelsBackend.Repositories
             }
         }
 
-        public async Task<PatternList> DeletePatternAsync(PatternList pattern)
+        public async Task<Guid> DeletePatternAsync(Guid patternUUID)
         {
             using (var sql = new NpgsqlConnection(this.connectionString))
             {
                 var sqlParams = new DynamicParameters();
-                sqlParams.Add("_pattern_uuid", pattern.PatternUUID);
+                sqlParams.Add("_pattern_uuid", patternUUID);
                 await sql.ExecuteAsync("patterns_schema.delete_pattern", sqlParams, commandType: System.Data.CommandType.StoredProcedure);
-                return pattern;
+                return patternUUID;
             }
         }
 

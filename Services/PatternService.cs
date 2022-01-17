@@ -34,9 +34,9 @@ namespace NeopixelsBackend.Services
             return createdPattern;
         }
 
-        public async Task<PatternList> DeletePatternAsync(PatternList pattern)
+        public async Task<Guid> DeletePatternAsync(Guid patternUUID)
         {
-            var deletedPattern = await this.patternRepository.DeletePatternAsync(pattern);
+            var deletedPattern = await this.patternRepository.DeletePatternAsync(patternUUID);
             return deletedPattern;
         }
 
